@@ -1,0 +1,34 @@
+Test-Command: /usr/share/cargo/bin/cargo-auto-test quickcheck 1.0.3 --all-targets --all-features
+Features: test-name=rust-quickcheck:@
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test quickcheck 1.0.3 --all-targets --no-default-features
+Features: test-name=librust-quickcheck-dev:
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test quickcheck 1.0.3 --all-targets 
+Features: test-name=librust-quickcheck+default-dev:default
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test quickcheck 1.0.3 --all-targets --no-default-features --features env_logger
+Features: test-name=librust-quickcheck+env-logger-dev:env_logger
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test quickcheck 1.0.3 --all-targets --no-default-features --features log
+Features: test-name=librust-quickcheck+log-dev:log
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test quickcheck 1.0.3 --all-targets --no-default-features --features regex
+Features: test-name=librust-quickcheck+regex-dev:regex
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test quickcheck 1.0.3 --all-targets --no-default-features --features use_logging
+Features: test-name=librust-quickcheck+use-logging-dev:use_logging
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable

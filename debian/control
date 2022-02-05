@@ -1,0 +1,121 @@
+Source: rust-quickcheck
+Section: rust
+Priority: optional
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 24),
+ cargo:native <!nocheck>,
+ rustc:native <!nocheck>,
+ libstd-rust-dev <!nocheck>,
+ librust-env-logger-0.9+regex-dev <!nocheck> | librust-env-logger-0.8+regex-dev (>= 0.8.2-~~) <!nocheck>,
+ librust-env-logger-0.9-dev <!nocheck> | librust-env-logger-0.8-dev (>= 0.8.2-~~) <!nocheck>,
+ librust-log-0.4+default-dev <!nocheck>,
+ librust-rand-0.8+getrandom-dev <!nocheck>,
+ librust-rand-0.8+small-rng-dev <!nocheck>
+Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+Uploaders:
+ kpcyrd <git@rxv.cc>,
+ Wolfgang Silbermayr <wolfgang@silbermayr.at>
+Standards-Version: 4.5.1
+Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/quickcheck]
+Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/quickcheck
+Homepage: https://github.com/BurntSushi/quickcheck
+Rules-Requires-Root: no
+
+Package: librust-quickcheck-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-rand-0.8+getrandom-dev,
+ librust-rand-0.8+small-rng-dev
+Recommends:
+ librust-quickcheck+default-dev (= ${binary:Version})
+Suggests:
+ librust-quickcheck+env-logger-dev (= ${binary:Version}),
+ librust-quickcheck+log-dev (= ${binary:Version}),
+ librust-quickcheck+regex-dev (= ${binary:Version}),
+ librust-quickcheck+use-logging-dev (= ${binary:Version})
+Provides:
+ librust-quickcheck-1-dev (= ${binary:Version}),
+ librust-quickcheck-1.0-dev (= ${binary:Version}),
+ librust-quickcheck-1.0.3-dev (= ${binary:Version})
+Description: Automatic property based testing with shrinking - Rust source code
+ This package contains the source for the Rust quickcheck crate, packaged by
+ debcargo for use with cargo and dh-cargo.
+
+Package: librust-quickcheck+default-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-quickcheck-dev (= ${binary:Version}),
+ librust-quickcheck+regex-dev (= ${binary:Version}),
+ librust-quickcheck+use-logging-dev (= ${binary:Version})
+Provides:
+ librust-quickcheck-1+default-dev (= ${binary:Version}),
+ librust-quickcheck-1.0+default-dev (= ${binary:Version}),
+ librust-quickcheck-1.0.3+default-dev (= ${binary:Version})
+Description: Automatic property based testing with shrinking - feature "default"
+ This metapackage enables feature "default" for the Rust quickcheck crate, by
+ pulling in any additional dependencies needed by that feature.
+
+Package: librust-quickcheck+env-logger-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-quickcheck-dev (= ${binary:Version}),
+ librust-env-logger-0.9-dev | librust-env-logger-0.8-dev (>= 0.8.2-~~)
+Provides:
+ librust-quickcheck-1+env-logger-dev (= ${binary:Version}),
+ librust-quickcheck-1.0+env-logger-dev (= ${binary:Version}),
+ librust-quickcheck-1.0.3+env-logger-dev (= ${binary:Version})
+Description: Automatic property based testing with shrinking - feature "env_logger"
+ This metapackage enables feature "env_logger" for the Rust quickcheck crate, by
+ pulling in any additional dependencies needed by that feature.
+
+Package: librust-quickcheck+log-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-quickcheck-dev (= ${binary:Version}),
+ librust-log-0.4+default-dev
+Provides:
+ librust-quickcheck-1+log-dev (= ${binary:Version}),
+ librust-quickcheck-1.0+log-dev (= ${binary:Version}),
+ librust-quickcheck-1.0.3+log-dev (= ${binary:Version})
+Description: Automatic property based testing with shrinking - feature "log"
+ This metapackage enables feature "log" for the Rust quickcheck crate, by
+ pulling in any additional dependencies needed by that feature.
+
+Package: librust-quickcheck+regex-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-quickcheck-dev (= ${binary:Version}),
+ librust-env-logger-0.9+regex-dev | librust-env-logger-0.8+regex-dev (>= 0.8.2-~~)
+Provides:
+ librust-quickcheck-1+regex-dev (= ${binary:Version}),
+ librust-quickcheck-1.0+regex-dev (= ${binary:Version}),
+ librust-quickcheck-1.0.3+regex-dev (= ${binary:Version})
+Description: Automatic property based testing with shrinking - feature "regex"
+ This metapackage enables feature "regex" for the Rust quickcheck crate, by
+ pulling in any additional dependencies needed by that feature.
+
+Package: librust-quickcheck+use-logging-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-quickcheck-dev (= ${binary:Version}),
+ librust-env-logger-0.9-dev | librust-env-logger-0.8-dev (>= 0.8.2-~~),
+ librust-log-0.4+default-dev
+Provides:
+ librust-quickcheck-1+use-logging-dev (= ${binary:Version}),
+ librust-quickcheck-1.0+use-logging-dev (= ${binary:Version}),
+ librust-quickcheck-1.0.3+use-logging-dev (= ${binary:Version})
+Description: Automatic property based testing with shrinking - feature "use_logging"
+ This metapackage enables feature "use_logging" for the Rust quickcheck crate,
+ by pulling in any additional dependencies needed by that feature.
