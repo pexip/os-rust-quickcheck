@@ -11,8 +11,9 @@ Build-Depends: debhelper (>= 12),
  librust-log-0.4+default-dev <!nocheck>,
  librust-rand-0.8+getrandom-dev <!nocheck>,
  librust-rand-0.8+small-rng-dev <!nocheck>
-Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
-Uploaders:
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+XSBC-Pexip-Original-Uploaders:
  kpcyrd <git@rxv.cc>,
  Wolfgang Silbermayr <wolfgang@silbermayr.at>
 Standards-Version: 4.5.1
@@ -20,6 +21,7 @@ Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/quickcheck]
 Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/quickcheck
 Homepage: https://github.com/BurntSushi/quickcheck
 Rules-Requires-Root: no
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ bookworm
 
 Package: librust-quickcheck-dev
 Architecture: any
